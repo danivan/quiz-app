@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import ChoiceButton from './ChoiceButton.vue';
 
 defineProps<{
-  item: string;
+  item: {
+    question: string;
+    choices: string[];
+    answer: string;
+  };
 }>();
 </script>
 <template>
   <div class="h-screen flex items-center justify-center">
     <div
-      class="flex flex-col rounded-xl bg-white p-4 shadow-xl w-1/3 h-1/2 self-center items-center justify-center"
+      class="grid grid-cols-4 gap-4 rounded-xl bg-white p-4 shadow-xl w-1/3 h-1/2 self-center items-center justify-center"
     >
-      <p class="text-2xl">{{ item.question }}</p>
-      <div>{{ item.choices }}</div>
+      <p class="text-2xl col-span-4 text-center">{{ item.question }}</p>
+      <ChoiceButton v-for="choice in item.choices">{{ choice }}</ChoiceButton>
     </div>
   </div>
 </template>
