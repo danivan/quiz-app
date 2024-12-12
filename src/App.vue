@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import QuestionCard from './components/QuestionCard.vue';
-import questions from '../questions.json';
+import { useQuizStore } from './store/quiz';
+
+const store = useQuizStore();
+
+const questions = store.questions;
 </script>
 
 <template>
