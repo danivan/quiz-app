@@ -4,6 +4,7 @@ import App from './App.vue';
 import { createPinia } from 'pinia';
 import QuestionView from './components/views/QuestionView.vue';
 import { createMemoryHistory, createRouter } from 'vue-router';
+import StartView from './components/views/StartView.vue';
 
 const pinia = createPinia();
 const app = createApp(App);
@@ -11,6 +12,10 @@ const app = createApp(App);
 const routes = [
   {
     path: '/',
+    component: StartView,
+  },
+  {
+    path: '/question',
     component: QuestionView,
   },
 ];
