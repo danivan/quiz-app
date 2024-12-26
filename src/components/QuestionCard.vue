@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useQuizStore } from '../store/quiz';
 import ChoiceButton from './ChoiceButton.vue';
+import FloatingCard from './FloatingCard.vue';
 
 const store = useQuizStore();
 
@@ -18,9 +19,9 @@ function onAnswerSelected(choice: string) {
 }
 </script>
 <template>
-  <div class="h-screen flex items-center justify-center">
+  <FloatingCard>
     <div
-      class="border-2 border-solid grid grid-cols-4 gap-4 rounded-xl bg-white p-4 shadow-xl w-1/3 h-1/2 self-center items-center justify-center"
+      class="grid grid-cols-4 gap-4 p-4 h-full w-full rounded-xl items-center"
       :class="cardBorderClass"
     >
       <p class="text-2xl col-span-4 text-center">
@@ -34,15 +35,19 @@ function onAnswerSelected(choice: string) {
         {{ choice }}
       </ChoiceButton>
     </div>
-  </div>
+  </FloatingCard>
 </template>
 
 <style lang="css" scoped>
 .correct {
+  border-style: solid;
   border-color: green;
+  border-width: 2px;
 }
 
 .incorrect {
+  border-style: solid;
   border-color: red;
+  border-width: 2px;
 }
 </style>
