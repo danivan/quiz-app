@@ -25,10 +25,10 @@ function onAnswerSelected(choice: string) {
       :class="cardBorderClass"
     >
       <p class="text-2xl col-span-4 text-center">
-        {{ store.currentQuestion.question }}
+        {{ store.currentQuestion?.question }}
       </p>
       <ChoiceButton
-        v-for="choice in store.currentQuestion.choices"
+        v-for="choice in store.currentQuestion?.choices"
         :choice="choice"
         @answer-selected="onAnswerSelected"
       >
