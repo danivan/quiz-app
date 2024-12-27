@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What is 2 + 2?",
+    "choices": ["1", "2", "3", "4"],
+    "answer": "4",
+    "timeLimit": 60,
+    "order": 1
+  },
+  {
+    "question": "Which of the following is a reptile?",
+    "choices": ["Dog", "Cat", "Lizard", "Bird"],
+    "answer": "Lizard",
+    "order": 2
+  },
+  {
+    "question": "What is the shape of a ball?",
+    "choices": ["Round", "Cube", "Cone", "Spiral"],
+    "answer": "Round",
+    "order": 3
+  },
+  {
+    "question": "WHos is the cahmpion of Isabuhay 2024?",
+    "choices": ["Vitrum", "GL", "Loonie", "Slockone"],
+    "answer": "GL",
+    "order": 4
+  }
+]
