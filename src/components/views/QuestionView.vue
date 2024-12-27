@@ -3,5 +3,7 @@ import QuestionCard from '../QuestionCard.vue';
 </script>
 
 <template>
-  <QuestionCard />
+  <Suspense>
+    <QuestionCard />
+  </Suspense>
 </template>
