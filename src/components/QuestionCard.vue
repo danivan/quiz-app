@@ -5,6 +5,7 @@ import ChoiceButton from './ChoiceButton.vue';
 import FloatingCard from './FloatingCard.vue';
 
 const store = useQuizStore();
+await store.fetchQuestions();
 
 const cardBorderClass = ref<string>('');
 
