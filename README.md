@@ -1,6 +1,7 @@
 # Quiz App
 
 This is a browser-based quiz app built with Vue 3, Pinia, and the Vue Router.
+A solution to [roadmap.sh](https://roadmap.sh/projects/quiz-app) quiz app project.
 
 ## Features
 
