@@ -7,12 +7,16 @@ export const useQuizStore = defineStore('quiz', () => {
   const router = useRouter();
   const currentQuestion = ref<Question>();
   const score = ref(0);
+  const timeLeft = ref<number>(0);
+  const timeOutId = ref();
 
   const questions = ref<Question[]>([]);
   async function fetchQuestions() {
     const response = await fetch('questions.json');
     questions.value = (await response.json()) as Question[];
     currentQuestion.value = questions.value[0];
+    timeLeft.value = questions.value[0].timeLimit || 0;
+    tick();
   }
 
   function nextQuestion() {
@@ -26,6 +30,9 @@ export const useQuizStore = defineStore('quiz', () => {
     const nextQuestion = questions.value[currentQuestion.value.order];
     if (nextQuestion) {
       currentQuestion.value = nextQuestion;
+      timeLeft.value = currentQuestion.value.timeLimit || 0;
+      clearTimeout(timeOutId.value);
+      tick();
     } else {
       console.error('Next question not found');
     }
@@ -49,6 +56,13 @@ export const useQuizStore = defineStore('quiz', () => {
     router.replace('/');
   }
 
+  function tick() {
+    if (timeLeft.value > 0) {
+      timeLeft.value--;
+      timeOutId.value = setTimeout(tick, 1000);
+    }
+  }
+
   return {
     questions,
     nextQuestion,
@@ -57,5 +71,7 @@ export const useQuizStore = defineStore('quiz', () => {
     checkAnswer,
     fetchQuestions,
     reset,
+    tick,
+    timeLeft,
   };
 });
